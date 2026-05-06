@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: backend
+  namespace: app
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: backend
+
+  template:
+    metadata:
+      labels:
+        app: backend
+
+    spec:
+      containers:
+        - name: backend
+          image: hauncho/dunoesanchaeg-backend:latest
+
+          ports:
+            - containerPort: 8080
+
+          imagePullPolicy: Always
+
+          env:
+            - name: KAKAO_CLIENT_ID
+              value: "test-client-id"
+
+            - name: KAKAO_REDIRECT_URI
+              value: "http://localhost"
+
+            - name: KAKAO_ADMIN_KEY
+              value: "test-admin-key"
+
+            - name: KAKAO_CLIENT_SECRET
+              value: "test-client-secret"
