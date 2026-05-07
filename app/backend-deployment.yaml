@@ -39,3 +39,6 @@ spec:
 
             - name: KAKAO_CLIENT_SECRET
               value: "test-client-secret"
+
+            - name: CORS_ALLOWED_ORIGIN
+              value: "http://dunoesanchaeg.local:30080"
